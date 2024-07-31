@@ -3,12 +3,18 @@ package com.example.apptest
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.example.apptest.view.TestFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         Log.d("MainActivity","onCreate called")
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val testFragment = TestFragment()
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.add(R.id.container, testFragment)
+        transaction.commit()
     }
 
     override fun onStart() {
